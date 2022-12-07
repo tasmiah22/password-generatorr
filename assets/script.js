@@ -1,17 +1,5 @@
 // Array of special characters to be included in password
 
-function getPasswordLength() {
-  var possibleLength = prompt("Please enter a password length");
-  if(possibleLength === null){
-    return
-  }
-  if (possibleLength >= 10 && possibleLength <= 64) {
-    return possibleLength;
-  }
-  console.log(possibleLength);
-  return null;
-}
-function getPossibleCharacters(){
   var specialCharacters = [
     "@",
     "%",
@@ -105,7 +93,7 @@ function getPossibleCharacters(){
     var possibleChar = []
 
     var passLength = prompt ('The password needs to be between 10 and 64 characters.')
-  if ((passLength < 10 || (passLength > 64)){
+  if ((passLength < 10 || (passLength > 64))){
     alert('Try again! The password should be between 10 to 64 characters.');
     return getPasswordOptions();
   }
@@ -118,38 +106,34 @@ function getPossibleCharacters(){
  }
   var wantsNumeric = confirm('Would you like numeric characters?');
   if (wantsNumeric) {
-   possibleChar = possibleChar.concat(numericCharacters));
+   possibleChar = possibleChar.concat(numericCharacters);
+  }
   var wantsUpper = confirm ('Would you like uppercase?');
   if (wantsUpper) {
     possibleChar = possibleChar.concat(upperCasedCharacters);
+  }
   var wantsLower = confirm ('Would you like lower case?');
   if (wantsLower) {
     possibleChar = possibleChar.concat(lowerCasedCharacters);
 
 alert("Nice! You have created a password.")
 
-// Function to prompt user for password options
-function generatePassword() {
-  var passLength = getPasswordLength();
-  if(passLength === null){
-    alert("you should have selected a value between 10 and 64. Try again!")
-    return
   }
-  var characterOptions = getPossibleCharacters()
-  if(characterOptions === null){
-    alert("you should have selected at least one data type! Try again!")
-    return
-  }
-  if (characterOptions.length < 1){
-alert('Choose one character option at least please.');
-returngetPasswordOptions();
-  }
+
+if (possibleChar.length < 1){
+  alert('Select at least one character option please.');
+  return getPasswordOptions();
+}
+
+var userOptions = {passLength, possibleChar};
+return userOptions;
 
 
 function getRandom(Array) {
   return Array[Math.floor(Math.random()* Array.length)];
 
 }
+
 
 function generatePassword(){
 
@@ -179,4 +163,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
