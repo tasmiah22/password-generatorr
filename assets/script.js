@@ -129,8 +129,8 @@ var userOptions = {passLength, possibleChar};
 return userOptions;
 
 
-function getRandom(Array) {
-  return Array[Math.floor(Math.random()* Array.length)];
+function getRandom(array) {
+  return array[Math.floor(Math.random()* array.length)];
 
 }
 
@@ -151,11 +151,10 @@ function generatePassword(){
 
 
 var generateBtn = document.querySelector("#generate");
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  console.log(password);
+  // console.log(password);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
