@@ -88,15 +88,19 @@
     "Y",
     "Z",
   ];
+ 
+  // password options prompt with global array //
 
   function getPasswordOptions(){
     var possibleChar = []
+
+  
 
     var passLength = prompt ('The password needs to be between 10 and 64 characters.')
   if ((passLength < 10 || (passLength > 64))){
     alert('Try again! The password should be between 10 to 64 characters.');
     return getPasswordOptions();
-  }
+  
   }
   
 
@@ -125,23 +129,24 @@ if (possibleChar.length < 1){
   return getPasswordOptions();
 }
 
+// object to store the users options//
 var userOptions = {passLength, possibleChar};
 return userOptions;
-
+} 
 
 function getRandom(array) {
   return array[Math.floor(Math.random()* array.length)];
 
 }
 
-
+// function to generate the password using the users options/ input // 
 function generatePassword(){
 
   var userOptions = getPasswordOptions();
   var password = "";
 
   for (var i = 0; i < userOptions.passLength; i++){
-    var charSet = getRandom(userOptions.characterOptions);
+    var charSet = getRandom(userOptions.possibleChar);
     password= password.concat(getRandom(charSet));
   }
   return password;
